@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadmus.NdpBooks.Parts", "Cadmus.NdpBooks.Parts\Cadmus.NdpBooks.Parts.csproj", "{B37CE342-A9AE-4496-9F05-A23F31567944}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadmus.Seed.NdpBooks.Parts", "Cadmus.Seed.NdpBooks.Parts\Cadmus.Seed.NdpBooks.Parts.csproj", "{C524B179-B1B1-4F68-AC99-493A5774C6D4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F8C886C0-CCEA-468D-AF6C-F1FABA0F238A}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadmus.NdpBooks.Services", "Cadmus.NdpBooks.Services\Cadmus.NdpBooks.Services.csproj", "{FFEA1830-E32B-4059-9558-71351C3A4114}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadmus.NdpBooks.Parts.Test", "Cadmus.NdpBooks.Parts.Test\Cadmus.NdpBooks.Parts.Test.csproj", "{543225C3-0C5F-44E4-8906-9620753DFA22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadmus.Seed.NdpBooks.Parts.Test", "Cadmus.Seed.NdpBooks.Parts.Test\Cadmus.Seed.NdpBooks.Parts.Test.csproj", "{3FA8EF4C-6BBE-4F64-B27B-8243FDAAF6DA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B37CE342-A9AE-4496-9F05-A23F31567944}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B37CE342-A9AE-4496-9F05-A23F31567944}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B37CE342-A9AE-4496-9F05-A23F31567944}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B37CE342-A9AE-4496-9F05-A23F31567944}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C524B179-B1B1-4F68-AC99-493A5774C6D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C524B179-B1B1-4F68-AC99-493A5774C6D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C524B179-B1B1-4F68-AC99-493A5774C6D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C524B179-B1B1-4F68-AC99-493A5774C6D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFEA1830-E32B-4059-9558-71351C3A4114}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFEA1830-E32B-4059-9558-71351C3A4114}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFEA1830-E32B-4059-9558-71351C3A4114}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFEA1830-E32B-4059-9558-71351C3A4114}.Release|Any CPU.Build.0 = Release|Any CPU
+		{543225C3-0C5F-44E4-8906-9620753DFA22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{543225C3-0C5F-44E4-8906-9620753DFA22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{543225C3-0C5F-44E4-8906-9620753DFA22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{543225C3-0C5F-44E4-8906-9620753DFA22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FA8EF4C-6BBE-4F64-B27B-8243FDAAF6DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FA8EF4C-6BBE-4F64-B27B-8243FDAAF6DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FA8EF4C-6BBE-4F64-B27B-8243FDAAF6DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FA8EF4C-6BBE-4F64-B27B-8243FDAAF6DA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
