@@ -10,97 +10,105 @@ In what follows:
 - ⭐ marks a new part. The star is used once, even when that part is then reused in other items. If a part marked with a star has a link to documentation, this means that I have already implemented it as I could do this in advance for generic parts. All the other parts are still to be implemented.
 - ⚠️ marks an area where the model must still be defined with a discussion.
 
-## Items
+## New Parts
 
-- edition: this is an abstraction derived from 1 or more instances. Shared data could be placed here rather than repeating them for each instance.
-- instance
-- illustration
-- frieze
+### PrintLayoutPart
 
-## Instance Item
+Description of the print layout.
 
-- 🌟 RelatedEntitiesPart:
-  - entities (RelatedEntity[]):
-    - type (`string` 📚)
-    - roles (`string[]` 📚)
-    - labels:
-      - language (`string` 📚)
-      - value (`string`)
-    - identifiers:
-      - scope (`string` 📚)
-      - value (`string`)
-    - note (`string`)
+- 🌟 `PrintLayoutPart`:
+  - `fonts` (`PrintFont[]`):
+    - `family`\* (`string`): a descriptive ID like "R13" for the font family.
+    - `ids` (`AssertedCompositeId[]`): external identifiers for the font.
+    - `sections` (`string[]` 📚, fieldset): the section(s) where the font is used, e.g. title, body, note, etc.
+    - `note` (`string`)
+  - `sheetFormats` (`string[]` 📚)
+  - `counts` (`DecoratedCount[]` 📚): counts for columns, sheets, etc.
+  - `collation` (`string`: TODO: define a formula)
+  - `features` (`string[]` 📚): various relevant features in layout like e.g. drop caps, framed text, etc.
+  - `note` (`string`)
 
->This can be used for authors and editors with different roles.
+### FigurativePlanPart
 
-- 🌟 PrintLayoutPart:
-  - fonts (`string[]`? what formalism? e.g. 13R)
-  - sheet format (`string` 📚) ??many
-  - counts (for columns, sheets, etc.)
-  - collation (`string`: ??formula)
-  - features (`string[]` 📚 e.g. drop caps, framed comment...)
-  - note
+Figurative plan.
 
-- 🌟 PrintContentPart??:
-  - contents (`PrintContent[]`):
-    - location (`string`: ??form)
-    - title (`string`)
-    - language (`string` 📚)
-    - identifiers (`string[]`)??
-    - note (`string`)
+- 🌟 `FigurativePlanPart`:
+  - `artists` (`AssertedCompositeId[]`): artists identifiers, from external or internal resources, or even simple arbitrary names for unindentified artists.
+  - `techniques` (`string[]` 📚)
+  - `items` (`FigPlanItem[]`): ordered list of items (illustrations, initials, etc.):
+    - `id` (`string`): a conventional human-friendly ID.
+    - `type` (`string` 📚): type like illustration, initial, etc.
+    - `citation` (`string`): this is a cross-project citation created according to some convention to link the figurative item to a textual passage.
+  - `description` (`string`)
+  - `features` (`string[]` 📚): any set of relevant features tagged for the plan.
 
->I would suggest a higher level contents model which can be applied to all the NDP sub-projects.
+### FigurativePlanImplPart
 
-- [MetadataPart](https://github.com/vedph/cadmus-general/blob/master/docs/metadata.md)
-- [ChronotopesPart:prn](https://github.com/vedph/cadmus-general/blob/master/docs/chronotopes.md) for printed
-- [ChronotopesPart:pub](https://github.com/vedph/cadmus-general/blob/master/docs/chronotopes.md) for published
-- [ExternalIdsPart](https://github.com/vedph/cadmus-general/blob/master/docs/external-ids.md)
-- [NotePart:inc](https://github.com/vedph/cadmus-general/blob/master/docs/note.md) for incipit
-- [NotePart:col](https://github.com/vedph/cadmus-general/blob/master/docs/note.md) for colophon
-- [NotePart](https://github.com/vedph/cadmus-general/blob/master/docs/note.md) for generic note
-- [ExtBibliographyPart](https://github.com/vedph/cadmus-general/blob/master/docs/ext-bibliography.md)
+Implementation of a figurative plan.
 
->If you need more on the text of incipit/colophon we have better make them base text parts of an independent item.
+- 🌟 `FigurativePlanImplPart`:
+  - `complete` (`boolean`)
+  - `techniques` (`string[]`) for override.
+  - `items` (`FigPlanItemImpl[]`):
+    - `id`\* (`string`): the ID of the corresponding figurative plan item, or a new one if added in this instance.
+    - `location`\* (`string`): the page location.
+    - `change`\* (`string`: 📚 none, added, deleted, replaced)
+    - `features` (`string[]` 📚): any relevant features of the implemented item, e.g. a frame.
+    - `woodblockState`\* (`string` 📚 e.g. good, fair, bad, etc.): the state of the woodblock used to print this item.
+    - `woodblockStateDsc` (`string`): a free textual description of the woodblock state.
+    - `position`\* (`string` 📚): the relative position of the item in the page, e.g. in-text, above column, etc.
+    - `size` (`PhysicalSize`)
+    - `labels` (`string[]` 📚): the label types found in the item: e.g. a legend for the whole image, or a character name on a character in the image, etc.
+    - `labelDsc` (`string`): a free textual description of image label(s).
+    - `iconography` (`FigIconography`):
+      - `subjects` (`string[]` 📚): macrosoggetti.
+      - `keywords` (`Keyword[]`):
+        - `language` (`string`)
+        - `value` (`string`)
+      - `description` (`string`)
+      - `citations` (`string[]`): any number of cross-project citation created according to some convention to link the figurative item to a textual passage.
+      - `relatedIds` (`AssertedCompositeId[]`): IDs of related entities, whatever their type (persons, manuscripts, etc.).
+  - `description` (`string`)
+  - `features` (`string[]` 📚)
 
-- Progetto illustrativo: we need to define the granularity level:
-  - attribution: text
-  - project: text??
-  - technique: can get at least some features??
-  - description: text??
+## PrintEdition Item
 
-Connected to this we have:
+The print edition is an abstraction, defined from at least 1 print instance.
 
-- illustrations
-- initials
-- friezes
-- reuses: for each one:
-  - type (`string` 📚)
-  - location(s) (`string[]`)
-  - description (`string`)
-  - citations (`string[]` form??)
-  - note (`string`)
+- general:
+  - [MetadataPart](https://github.com/vedph/cadmus-general/blob/master/docs/metadata.md)
+  - [ExternalIdsPart](https://github.com/vedph/cadmus-general/blob/master/docs/external-ids.md)
+  - [ChronotopesPart:prn](https://github.com/vedph/cadmus-general/blob/master/docs/chronotopes.md) for printed
+  - [ChronotopesPart:pub](https://github.com/vedph/cadmus-general/blob/master/docs/chronotopes.md) for published
+  - [PinLinksPart](https://github.com/vedph/cadmus-general/blob/master/docs/pin-links.md)`:auth`: authors
+  - [PinLinksPart](https://github.com/vedph/cadmus-general/blob/master/docs/pin-links.md)`:ed`: editors
+- content:
+  - [PrintLayoutPart](#printlayoutpart)
+  - [EPI EpiSignsPart](https://github.com/vedph/cadmus-epigraphy/blob/master/docs/epi-signs.md)
+  - [FigurativePlanPart](#figurativeplanpart)
+  - [NotePart:inc](https://github.com/vedph/cadmus-general/blob/master/docs/note.md) for incipit
+  - [NotePart:col](https://github.com/vedph/cadmus-general/blob/master/docs/note.md) for colophon
+- editorial:
+  - [NotePart](https://github.com/vedph/cadmus-general/blob/master/docs/note.md) for generic note
+  - [ExtBibliographyPart](https://github.com/vedph/cadmus-general/blob/master/docs/ext-bibliography.md)
 
-## Illustration Item
+## PrintInstance Item
 
-- To be structured:
-  - location
-  - tipologia matrice
-  - size
-  - frame size
-  - frame description
-  - frame features
-  - iscrizioni
-  - description
-  - citations
-  - livello del testo??
-  - contesto interno??
-  - rapporti tradizione dantesca??
-  - soggetto??
-
-- [MetadataPart](https://github.com/vedph/cadmus-general/blob/master/docs/metadata.md)
-- [ExternalIdsPart](https://github.com/vedph/cadmus-general/blob/master/docs/external-ids.md)
-- [CategoriesPart:subj](https://github.com/vedph/cadmus-general/blob/master/docs/categories.md): "macrosoggetto".
-- [IndexKeywordsPart](https://github.com/vedph/cadmus-general/blob/master/docs/index-keywords.md)
-- [NotePart](https://github.com/vedph/cadmus-general/blob/master/docs/note.md) for generic note
-- [ExtBibliographyPart](https://github.com/vedph/cadmus-general/blob/master/docs/ext-bibliography.md)
-- [PhysicalStatesPart](https://github.com/vedph/cadmus-general/blob/master/docs/physical-states.md)
+- general:
+  - [MetadataPart](https://github.com/vedph/cadmus-general/blob/master/docs/metadata.md)
+  - [COD shelfmarks](https://github.com/vedph/cadmus-codicology/blob/master/docs/cod-shelfmarks.md)
+  - [ExternalIdsPart](https://github.com/vedph/cadmus-general/blob/master/docs/external-ids.md)
+- material:
+  - [COD bindings](https://github.com/vedph/cadmus-codicology/blob/master/docs/cod-bindings.md)
+  - [PhysicalMeasurementsPart](https://github.com/vedph/cadmus-general/blob/master/docs/physical-measurements.md)
+  - [PhysicalStatesPart](https://github.com/vedph/cadmus-general/blob/master/docs/physical-states.md)
+- content:
+  - [PrintLayoutPart](#printlayoutpart) for overriding
+  - [FigurativePlanImplPart](#figurativeplanimplpart)
+- history:
+  - [HistoricalEventsPart](https://github.com/vedph/cadmus-general/blob/master/docs/historical-events.md)
+  - [COD CodEditsPart](https://github.com/vedph/cadmus-codicology/blob/master/docs/cod-edits.md) TODO: possibly change??
+  - TODO: `FigurativeEditsPart`?? define something similar to CodEditsPart for the figurative layer.
+- editorial:
+  - [NotePart](https://github.com/vedph/cadmus-general/blob/master/docs/note.md) for generic note
+  - [ExtBibliographyPart](https://github.com/vedph/cadmus-general/blob/master/docs/ext-bibliography.md)
