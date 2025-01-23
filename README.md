@@ -19,7 +19,7 @@ Description of the print layout.
 - 🌟 `PrintLayoutPart`:
   - `fonts` (`PrintFont[]`):
     - `family`\* (`string`): a descriptive ID like "R13" for the font family.
-    - `ids` (`AssertedCompositeId[]`): external identifiers for the font.
+    - `ids` ([AssertedCompositeId[]](https://github.com/vedph/cadmus-bricks-shell-v3/blob/master/projects/myrmidon/cadmus-refs-asserted-ids/README.md#asserted-composite-ids)): external identifiers for the font.
     - `sections` (`string[]` 📚, fieldset): the section(s) where the font is used, e.g. title, body, note, etc.
     - `note` (`string`)
   - `sheetFormats` (`string[]` 📚)
@@ -33,7 +33,7 @@ Description of the print layout.
 Figurative plan.
 
 - 🌟 `FigurativePlanPart`:
-  - `artists` (`AssertedCompositeId[]`): artists identifiers, from external or internal resources, or even simple arbitrary names for unindentified artists.
+  - `artists` ([AssertedCompositeId[]](https://github.com/vedph/cadmus-bricks-shell-v3/blob/master/projects/myrmidon/cadmus-refs-asserted-ids/README.md#asserted-composite-ids)): artists identifiers, from external or internal resources, or even simple arbitrary names for unindentified artists.
   - `techniques` (`string[]` 📚)
   - `items` (`FigPlanItem[]`): ordered list of items (illustrations, initials, etc.):
     - `id` (`string`): a conventional human-friendly ID.
@@ -57,7 +57,7 @@ Implementation of a figurative plan.
     - `woodblockState`\* (`string` 📚 e.g. good, fair, bad, etc.): the state of the woodblock used to print this item.
     - `woodblockStateDsc` (`string`): a free textual description of the woodblock state.
     - `position`\* (`string` 📚): the relative position of the item in the page, e.g. in-text, above column, etc.
-    - `size` (`PhysicalSize`)
+    - `size` ([PhysicalSize](https://github.com/vedph/cadmus-bricks-shell-v3/blob/master/projects/myrmidon/cadmus-mat-physical-size/README.md))
     - `labels` (`string[]` 📚): the label types found in the item: e.g. a legend for the whole image, or a character name on a character in the image, etc.
     - `labelDsc` (`string`): a free textual description of image label(s).
     - `iconography` (`FigIconography`):
@@ -67,7 +67,7 @@ Implementation of a figurative plan.
         - `value` (`string`)
       - `description` (`string`)
       - `citations` (`string[]`): any number of cross-project citation created according to some convention to link the figurative item to a textual passage.
-      - `relatedIds` (`AssertedCompositeId[]`): IDs of related entities, whatever their type (persons, manuscripts, etc.).
+      - `relatedIds` ([AssertedCompositeId[]](https://github.com/vedph/cadmus-bricks-shell-v3/blob/master/projects/myrmidon/cadmus-refs-asserted-ids/README.md#asserted-composite-ids)): IDs of related entities, whatever their type (persons, manuscripts, etc.).
   - `description` (`string`)
   - `features` (`string[]` 📚)
 
