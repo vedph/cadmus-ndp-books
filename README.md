@@ -12,6 +12,50 @@ In what follows:
 - ⭐ marks a new part. The star is used once, even when that part is then reused in other items. If a part marked with a star has a link to documentation, this means that I have already implemented it as I could do this in advance for generic parts. All the other parts are still to be implemented.
 - ⚠️ marks an area where the model must still be defined with a discussion.
 
+```mermaid
+graph LR;
+
+EDITION --> general
+general --> metadata
+general --> external-ids
+general --> chronotopes:prn
+general --> chronotopes:pub
+general --> pin-links:auth
+general --> pin-links:ed
+EDITION --> content
+content --> print-layout
+content --> epi_signs
+content --> figurative-plan
+content --> note:inc
+content --> note:col
+EDITION --> editorial
+editorial --> note
+editorial --> ext-bibliography
+```
+
+```mermaid
+graph LR;
+
+INSTANCE --> general
+general --> metadata
+general --> external-ids
+general --> cod_shelfmarks
+INSTANCE --> material
+material --> cod_bindings
+material --> measurements
+material --> states
+INSTANCE --> content
+content --> print-layout
+content --> figurative-plan-impl
+INSTANCE --> history
+history --> events
+history --> cod_edits
+history --> figurative-edits?
+INSTANCE --> editorial
+editorial --> note
+editorial --> ext-bibliography
+```
+
 ## New Parts
 
 ### PrintLayoutPart
@@ -86,7 +130,7 @@ The print edition is an abstraction, defined from at least 1 print instance.
   - 🟢 [PinLinksPart](https://github.com/vedph/cadmus-general/blob/master/docs/pin-links.md)`:ed`: editors
 
 - content:
-  - 🌟 [PrintLayoutPart](#printlayoutpart)
+  - ⭐ [PrintLayoutPart](#printlayoutpart)
   - 🪨 [EPI EpiSignsPart](https://github.com/vedph/cadmus-epigraphy/blob/master/docs/epi-signs.md)
   - 🟢 [FigurativePlanPart](#figurativeplanpart)
   - 🟢 [NotePart:inc](https://github.com/vedph/cadmus-general/blob/master/docs/note.md) for incipit
@@ -100,8 +144,8 @@ The print edition is an abstraction, defined from at least 1 print instance.
 
 - general:
   - 🟢 [MetadataPart](https://github.com/vedph/cadmus-general/blob/master/docs/metadata.md)
-  - 📖 [COD shelfmarks](https://github.com/vedph/cadmus-codicology/blob/master/docs/cod-shelfmarks.md)
   - 🟢 [ExternalIdsPart](https://github.com/vedph/cadmus-general/blob/master/docs/external-ids.md)
+  - 📖 [COD shelfmarks](https://github.com/vedph/cadmus-codicology/blob/master/docs/cod-shelfmarks.md)
 
 - material:
   - 📖 [COD bindings](https://github.com/vedph/cadmus-codicology/blob/master/docs/cod-bindings.md)
