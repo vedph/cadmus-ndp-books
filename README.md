@@ -85,7 +85,7 @@ Figurative plan.
 
 - ⭐ `FigurativePlanPart`:
   - `artists` ([AssertedCompositeId[]](https://github.com/vedph/cadmus-bricks-shell-v3/blob/master/projects/myrmidon/cadmus-refs-asserted-ids/README.md#asserted-composite-ids)): artists identifiers, from external or internal resources, or even simple arbitrary names for unindentified artists.
-  - `techniques` (`string[]` 📚 `fig-plan-techniques`: copper engraving, woodcut, lithograph, etching, intaglio, planographic).
+  - `techniques` (`string[]` 📚 `fig-plan-techniques`: copper engraving, woodcut, lithograph, etching, other).
   - `items` (`FigPlanItem[]`): ordered list of items (illustrations, initials, etc.):
     - `id` (`string`): a conventional human-friendly ID.
     - `type` (`string` 📚 `fig-plan-types`: illustration, initial, scheme, diagram, frieze): type.
@@ -105,9 +105,9 @@ Implementation of a figurative plan.
     - `location`\* (`string`): the page location.
     - `change`\* (`string`: 📚 `fig-plan-impl-changes`: none, add, delete, replace, reuse, change, misuse)
     - `features` (`string[]` 📚 `fig-plan-impl-item-features`: original block change, frame added, frame removed, frame changed, other): any relevant features of the implemented item, e.g. a frame.
-    - `blockState`\* (`string` 📚 `fig-plan-impl-block-states`: fine, good, fair, poor): the state of the woodblock used to print this item.
+    - `blockState`\* (`string` 📚 `fig-plan-impl-block-states`: fine, good, fair, damaged): the state of the woodblock used to print this item.
     - `blockStateDsc` (`string`): a free textual description of the woodblock state.
-    - `position`\* (`string` 📚 `fig-plan-impl-positions`: in-text, above column, upper margin, lower margin, full page, antiporta/frontispiece, single-sheet prints (carta di tavola)): the relative position of the item in the page.
+    - `position`\* (`string` 📚 `fig-plan-impl-positions`: in-text, upper margin, lower margin, full page, antiporta/frontispiece, single-sheet prints (carta di tavola)): the relative position of the item in the page.
     - `size` ([PhysicalSize](https://github.com/vedph/cadmus-bricks-shell-v3/blob/master/projects/myrmidon/cadmus-mat-physical-size/README.md))
     - `labels` (`FigPlanLabel[]`): the label types found in the item: e.g. a legend for the whole image, or a character name on a character in the image, etc.:
       - `type` (`string` 📚 `fig-plan-impl-labels`: legend, topographic indication, character name, inscription)
