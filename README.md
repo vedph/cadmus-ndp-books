@@ -49,6 +49,7 @@ material --> measurements
 material --> states
 general --> categories:edits
 INSTANCE --> content
+content --> print-fonts
 content --> print-layout
 content --> figurative-plan-impl
 INSTANCE --> history
