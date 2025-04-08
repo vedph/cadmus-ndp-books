@@ -23,7 +23,9 @@ general --> chronotopes:prn
 general --> chronotopes:pub
 general --> pin-links:auth
 general --> pin-links:ed
+general --> categories:types
 EDITION --> content
+content --> print-fonts
 content --> print-layout
 content --> epi_signs
 content --> figurative-plan
@@ -45,6 +47,7 @@ INSTANCE --> material
 material --> cod_bindings
 material --> measurements
 material --> states
+general --> categories:edits
 INSTANCE --> content
 content --> print-layout
 content --> figurative-plan-impl
