@@ -67,12 +67,10 @@ Description of the print layout.
   - `fonts` (`PrintFont[]`):
     - `eid` (`string`)
     - `family`\* (`string`): a descriptive ID like "R13" for the font family.
+    - `sections`\* (`string[]` 📚 `print-layout-sections`, fieldset: title, body, comment, proem, other): the section(s) where the font is used.
     - `features` (`string[]` 📚 `print-layout-font-features` flags, features of the font, especially useful when the family can't be specified: uppercase, lowercase, Roman, Gothic, Italic, Hebrew, Greek, Glagolitic, etc.)
     - `ids` ([AssertedCompositeId[]](https://github.com/vedph/cadmus-bricks-shell-v3/blob/master/projects/myrmidon/cadmus-refs-asserted-ids/README.md#asserted-composite-ids)): external identifiers for the font.
     - `note` (`string`)
-  - `fontUsages` (`PrintFontUsage[]`):
-    - `id`\* (`string`, one of the above font EIDs).
-    - `section`\* (`string[]` 📚 `print-layout-sections`, fieldset: title, body, comment, proem, other): the section(s) where the font is used.
   - `sheetFormats` (`string[]` 📚 `print-layout-formats`: folio (2º), quarto (4º), octavo (8º), duodecimo (12º), duodecimo large (12º l), sextodecimo (16º), octodecimo (18º), vigesimo-quarto (24º), trigesimo-secundo (32º), other)
   - `counts` (`DecoratedCount[]` 📚 `print-layout-counts`: sheets, columns, single-sheet (carte di tavola)): counts for columns, sheets, etc.
   - `collation` (`string`, a formula to be formalized, e.g. `[i–iii]8 χ6 a10 b8 c-e10 f8 g10 h-i8 l10 m-n8 o-r10 s6; 2a-2g10 2h12 2l-2m10 2o6; A8 B-H10⁰ I6 L12`, `&8 a-i8 k6 l-r8 2a-2m8 2n4 A6 B8 C-L6  (L6 bianca)`, `π10 a-z8 &8 [con]8 [rum]8 A8 B6 C-I8 K6 L8`, etc.)
