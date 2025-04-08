@@ -67,7 +67,7 @@ Description of the print layout.
   - `fonts` (`PrintFont[]`):
     - `eid` (`string`)
     - `family`\* (`string`): a descriptive ID like "R13" for the font family.
-    - `sections`\* (`string[]` 📚 `print-layout-sections`, fieldset: title, body, comment, proem, other): the section(s) where the font is used.
+    - `sections` (`string[]` 📚 `print-layout-sections`, fieldset: title, body, comment, proem, other): the section(s) where the font is used.
     - `features` (`string[]` 📚 `print-layout-font-features` flags, features of the font, especially useful when the family can't be specified: uppercase, lowercase, Roman, Gothic, Italic, Hebrew, Greek, Glagolitic, etc.)
     - `ids` ([AssertedCompositeId[]](https://github.com/vedph/cadmus-bricks-shell-v3/blob/master/projects/myrmidon/cadmus-refs-asserted-ids/README.md#asserted-composite-ids)): external identifiers for the font.
     - `note` (`string`)
@@ -163,11 +163,9 @@ The print edition is an abstraction, defined from at least 1 print instance.
 
 - history:
   - 🟢 [HistoricalEventsPart](https://github.com/vedph/cadmus-general/blob/master/docs/historical-events.md)
-  - 📖 [COD CodEditsPart](https://github.com/vedph/cadmus-codicology/blob/master/docs/cod-edits.md) ❓ possibly change??
+  - 📖 [COD CodEditsPart](https://github.com/vedph/cadmus-codicology/blob/master/docs/cod-edits.md)
   - ❓ `FigurativeEditsPart`?? define something similar to CodEditsPart for the figurative layer.
 
 - editorial:
   - 🟢 [NotePart](https://github.com/vedph/cadmus-general/blob/master/docs/note.md) for generic note
   - 🟢 [ExtBibliographyPart](https://github.com/vedph/cadmus-general/blob/master/docs/ext-bibliography.md)
-
-TODO: cod edits part?
