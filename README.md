@@ -92,7 +92,7 @@ Figurative plan.
   - `artists` ([AssertedCompositeId[]](https://github.com/vedph/cadmus-bricks-shell-v3/blob/master/projects/myrmidon/cadmus-refs-asserted-ids/README.md#asserted-composite-ids)): artists identifiers, from external or internal resources, or even simple arbitrary names for unindentified artists.
   - `techniques` (`string[]` 📚 `fig-plan-techniques`: copper engraving, woodcut, lithograph, etching, other).
   - `items` (`FigPlanItem[]`): ordered list of items (illustrations, initials, etc.):
-    - `id` (`string`): a conventional human-friendly ID.
+    - `eid` (`string`): a conventional human-friendly ID.
     - `type` (`string` 📚 `fig-plan-types`: illustration, initial, scheme, diagram, frieze): type.
     - `citation` (`string`): this is a cross-project citation created according to some convention to link the figurative item to a textual passage.
   - `description` (`string`)
