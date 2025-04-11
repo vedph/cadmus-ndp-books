@@ -106,7 +106,7 @@ Implementation of a figurative plan.
   - `complete` (`boolean`)
   - `techniques` (`string[]`) for override.
   - `items` (`FigPlanItemImpl[]`):
-    - `id`\* (`string`): the ID of the corresponding figurative plan item, or a new one if added in this instance.
+    - `eid`\* (`string`): the ID of the corresponding figurative plan item, or a new one if added in this instance.
     - `location`\* (`string`): the page location.
     - `change`\* (`string`: 📚 `fig-plan-impl-changes`: none, add, delete, replace, reuse, change, misuse)
     - `features` (`string[]` 📚 `fig-plan-impl-item-features`: original block change, frame added, frame removed, frame changed, other): any relevant features of the implemented item, e.g. a frame.
