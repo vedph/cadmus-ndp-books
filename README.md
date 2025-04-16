@@ -27,6 +27,7 @@ general --> categories:types
 EDITION --> content
 content --> print-fonts
 content --> print-layout
+content --> cod_watermarks
 content --> epi_signs
 content --> figurative-plan
 content --> note:inc
@@ -54,8 +55,10 @@ content --> print-layout
 content --> figurative-plan-impl
 INSTANCE --> history
 history --> events
+history --> pin-links
 history --> cod_edits
-history --> figurative-edits?
+history --> cod_decorations
+history --> print-edits?
 INSTANCE --> editorial
 editorial --> note
 editorial --> ext-bibliography
@@ -143,7 +146,9 @@ The print edition is an abstraction, defined from at least 1 print instance.
   - 🟢 [CategoriesPart:type](https://github.com/vedph/cadmus-general/blob/master/docs/categories.md)
 
 - content:
+  - ⭐ [PrintFontsPart](#printfontspart)
   - ⭐ [PrintLayoutPart](#printlayoutpart)
+  - 📖 [COD watermarks](https://github.com/vedph/cadmus-codicology/blob/master/docs/cod-watermarks.md)
   - 🪨 [EPI EpiSignsPart](https://github.com/vedph/cadmus-epigraphy/blob/master/docs/epi-signs.md)
   - 🟢 [FigurativePlanPart](#figurativeplanpart)
   - 🟢 [NotePart:inc](https://github.com/vedph/cadmus-general/blob/master/docs/note.md) for incipit
@@ -172,7 +177,9 @@ The print edition is an abstraction, defined from at least 1 print instance.
 
 - history:
   - 🟢 [HistoricalEventsPart](https://github.com/vedph/cadmus-general/blob/master/docs/historical-events.md)
+  - 🟢 [PinLinksPart](https://github.com/vedph/cadmus-general/blob/master/docs/fr.pin-links.md)
   - 📖 [COD CodEditsPart](https://github.com/vedph/cadmus-codicology/blob/master/docs/cod-edits.md)
+  - 📖 [COD CodDecorationsPart](https://github.com/vedph/cadmus-codicology/blob/master/docs/cod-decorations.md)
 
 - editorial:
   - 🟢 [NotePart](https://github.com/vedph/cadmus-general/blob/master/docs/note.md) for generic note
