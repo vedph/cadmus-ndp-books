@@ -121,14 +121,7 @@ Implementation of a figurative plan.
       - `type` (`string` 📚 `fig-plan-impl-labels`: legend, topographic indication, character name, inscription)
       - `fonts` (`PrintFont[]`)
     - `labelDsc` (`string`): a free textual description of image label(s).
-    - `iconography` (`FigIconography`):
-      - `subjects` (`string[]` 📚 `fig-plan-impl-subjects`): macrosoggetti.
-      - `keywords` (`Keyword[]`):
-        - `language` (`string`)
-        - `value` (`string`)
-      - `description` (`string`)
-      - `citations` (`string[]`): any number of cross-project citation created according to some convention to link the figurative item to a textual passage.
-      - `relatedIds` ([AssertedCompositeId[]](https://github.com/vedph/cadmus-bricks-shell-v3/blob/master/projects/myrmidon/cadmus-refs-asserted-ids/README.md#asserted-composite-ids)): IDs of related entities, whatever their type (persons, manuscripts, etc.).
+    - `iconographyId` (`AssertedCompositeId`): link to the corresponding iconography if any.
   - `description` (`string`)
   - `features` (`string[]` 📚 `fig-plan-impl-features`: centre, frame, initial, frieze)
 
