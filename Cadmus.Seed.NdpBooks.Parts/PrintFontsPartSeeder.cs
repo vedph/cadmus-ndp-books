@@ -50,7 +50,7 @@ public sealed class PrintFontsPartSeeder : PartSeederBase
         ArgumentNullException.ThrowIfNull(item);
 
         PrintFontsPart part = new Faker<PrintFontsPart>()
-           .RuleFor(p => p.Fonts, f => GetFonts(f))
+           .RuleFor(p => p.Fonts, f => GetFonts(f.Random.Number(1, 3)))
            .Generate();
         SetPartMetadata(part, roleId, item);
 
