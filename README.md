@@ -68,6 +68,8 @@ editorial --> ext-bibliography
 
 ### PrintFontsPart
 
+This part contains the fonts used in the printed book, each with its features and distribution across the book sections.
+
 - ⭐ `fonts` (`PrintFont[]`):
   - `eid` (`string`)
   - `family`\* (`string` 📚 `print-font-families`): a descriptive ID like "R5" for the font family.
@@ -78,7 +80,7 @@ editorial --> ext-bibliography
 
 ### PrintLayoutPart
 
-Description of the print layout.
+This part contains the description of the print layout.
 
 - ⭐ `PrintLayoutPart`:
   - `sheetFormats` (`string[]` 📚 `print-layout-formats`: folio (2º), quarto (4º), octavo (8º), duodecimo (12º), duodecimo large (12º l), sextodecimo (16º), octodecimo (18º), vigesimo-quarto (24º), trigesimo-secundo (32º), other)
@@ -90,7 +92,7 @@ Description of the print layout.
 
 ### FigurativePlanPart
 
-Figurative plan.
+This part describes the figurative plan for the book. As a plan, it is an abstraction as well as the edition. Departures from this plan are described in the `FigurativePlanImplPart` part, which is an implementation of the plan for a specific print instance.
 
 - ⭐ `FigurativePlanPart`:
   - `artists` ([AssertedCompositeId[]](https://github.com/vedph/cadmus-bricks-shell-v3/blob/master/projects/myrmidon/cadmus-refs-asserted-ids/README.md#asserted-composite-ids)): artists identifiers, from external or internal resources, or even simple arbitrary names for unindentified artists.
@@ -99,7 +101,7 @@ Figurative plan.
     - `eid` (`string`): a conventional human-friendly ID.
     - `type` (`string` 📚 `fig-plan-types`: illustration, initial, scheme, diagram, frieze): type.
     - `citation` (`string`): this is a cross-project citation created according to some convention to link the figurative item to a textual passage.
-  - `description` (`string`)
+  - `description` (`string`): free text description of the figurative plan.
   - `features` (`string[]` 📚 `fig-plan-features`): any set of relevant features tagged for the plan.
 
 ### FigurativePlanImplPart
@@ -107,24 +109,24 @@ Figurative plan.
 Implementation of a figurative plan.
 
 - ⭐ `FigurativePlanImplPart`:
-  - `complete` (`boolean`)
-  - `techniques` (`string[]`) for override.
-  - `items` (`FigPlanItemImpl[]`):
-    - `eid`\* (`string`): the ID of the corresponding figurative plan item, or a new one if added in this instance.
-    - `location`\* (`string`): the page location.
-    - `change`\* (`string`: 📚 `fig-plan-impl-changes`: none, add, delete, replace, reuse, change, misuse)
+  - `complete` (`boolean`): true if the implementation is complete with reference to the plan.
+  - `techniques` (`string[]`): specified only to override the corresponding techniques in the plan. If no technique is specified, all the plan's techniques are implied. If any technique is specified, this implies that these techniques fully replace the plan's techniques.
+  - `items` (`FigPlanItemImpl[]`): ordered list of items (illustrations, initials, etc.). Only those items which override the plan's items are specified here. If an item is not specified, it is assumed that the implementation is the same as in the plan:
+    - `eid`\* (`string`): the ID of the corresponding figurative plan item when overriding it, or a new one if added in this instance.
+    - `location` (`string`): the page location.
+    - `change`\* (`string`: 📚 `fig-plan-impl-changes`: none, add, delete, replace, reuse, change, misuse): this describes the type of change made to the item in this instance with respect to the plan. If an item is deleted, it will just include `eid` and change type.
     - `features` (`string[]` 📚 `fig-plan-impl-item-features`: original block change, frame added, frame removed, frame changed, other): any relevant features of the implemented item, e.g. a frame.
-    - `blockState`\* (`string` 📚 `fig-plan-impl-block-states`: fine, good, fair, damaged): the state of the woodblock used to print this item.
+    - `blockState` (`string` 📚 `fig-plan-impl-block-states`: fine, good, fair, damaged): the state of the woodblock (or other similar tool) used to print this item.
     - `blockStateDsc` (`string`): a free textual description of the woodblock state.
-    - `position`\* (`string` 📚 `fig-plan-impl-positions`: in-text, upper margin, lower margin, full page, antiporta/frontispiece, single-sheet prints (carta di tavola)): the relative position of the item in the page.
+    - `position` (`string` 📚 `fig-plan-impl-positions`: in-text, upper margin, lower margin, full page, antiporta/frontispiece, single-sheet prints (carta di tavola)): the relative position of the item in the page.
     - `size` ([PhysicalSize](https://github.com/vedph/cadmus-bricks-shell-v3/blob/master/projects/myrmidon/cadmus-mat-physical-size/README.md))
     - `labels` (`FigPlanLabel[]`): the label types found in the item: e.g. a legend for the whole image, or a character name on a character in the image, etc.:
-      - `type` (`string` 📚 `fig-plan-impl-labels`: legend, topographic indication, character name, inscription)
-      - `fonts` (`PrintFont[]`)
-    - `labelDsc` (`string`): a free textual description of image label(s).
-    - `iconographyId` (`AssertedCompositeId`): link to the corresponding iconography if any.
-  - `description` (`string`)
-  - `features` (`string[]` 📚 `fig-plan-impl-features`: centre, frame, initial, frieze)
+      - `type` (`string` 📚 `fig-plan-impl-labels`: legend, topographic indication, character name, inscription): the label type.
+      - `fonts` (`PrintFont[]`): the fonts used in the label.
+    - `labelDsc` (`string`): a free textual description of label(s).
+    - `iconographyId` (`AssertedCompositeId`): link to the corresponding iconography item if any.
+  - `description` (`string`): free text description of the figurative plan implementation.
+  - `features` (`string[]` 📚 `fig-plan-impl-features`: centre, frame, initial, frieze): this overrides the plan's features. If not specified, all the plan's features are implied. If any feature is specified, this implies that these features fully replace the plan's features.
 
 ## PrintEdition Item
 
@@ -133,8 +135,8 @@ The print edition is an abstraction, defined from at least 1 print instance.
 - general:
   - 🟢 [MetadataPart](https://github.com/vedph/cadmus-general/blob/master/docs/metadata.md)
   - 🟢 [ExternalIdsPart](https://github.com/vedph/cadmus-general/blob/master/docs/external-ids.md)
-  - 🟢 [ChronotopesPart:prn](https://github.com/vedph/cadmus-general/blob/master/docs/chronotopes.md) for printed
-  - 🟢 [ChronotopesPart:pub](https://github.com/vedph/cadmus-general/blob/master/docs/chronotopes.md) for published
+  - 🟢 [ChronotopesPart:prn](https://github.com/vedph/cadmus-general/blob/master/docs/chronotopes.md): print date(s) and place(s).
+  - 🟢 [ChronotopesPart:pub](https://github.com/vedph/cadmus-general/blob/master/docs/chronotopes.md): published date(s) and place(s).
   - 🟢 [PinLinksPart](https://github.com/vedph/cadmus-general/blob/master/docs/pin-links.md)`:auth`: authors
   - 🟢 [PinLinksPart](https://github.com/vedph/cadmus-general/blob/master/docs/pin-links.md)`:ed`: editors
   - 🟢 [CategoriesPart:type](https://github.com/vedph/cadmus-general/blob/master/docs/categories.md)
@@ -143,7 +145,6 @@ The print edition is an abstraction, defined from at least 1 print instance.
   - ⭐ [PrintFontsPart](#printfontspart)
   - ⭐ [PrintLayoutPart](#printlayoutpart)
   - 📖 [COD watermarks](https://github.com/vedph/cadmus-codicology/blob/master/docs/cod-watermarks.md)
-  - 🪨 [EPI EpiSignsPart](https://github.com/vedph/cadmus-epigraphy/blob/master/docs/epi-signs.md)
   - 🟢 [FigurativePlanPart](#figurativeplanpart)
   - 🟢 [NotePart:inc](https://github.com/vedph/cadmus-general/blob/master/docs/note.md) for incipit
   - 🟢 [NotePart:col](https://github.com/vedph/cadmus-general/blob/master/docs/note.md) for colophon
