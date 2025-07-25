@@ -70,7 +70,7 @@ editorial --> ext-bibliography
 
 - ⭐ `fonts` (`PrintFont[]`):
   - `eid` (`string`)
-  - `family`\* (`string` 📚 `print-font-families`): a descriptive ID like "R13" for the font family.
+  - `family`\* (`string` 📚 `print-font-families`): a descriptive ID like "R5" for the font family.
   - `sections` (`string[]` 📚 `print-layout-sections`, fieldset: title, body, comment, proem, other): the section(s) where the font is used.
   - `features` (`string[]` 📚 `print-font-features` flags, features of the font, especially useful when the family can't be specified: uppercase, lowercase, Roman, Gothic, Italic, Hebrew, Greek, Glagolitic, etc.)
   - `ids` ([AssertedCompositeId[]](https://github.com/vedph/cadmus-bricks-shell-v3/blob/master/projects/myrmidon/cadmus-refs-asserted-ids/README.md#asserted-composite-ids)): external identifiers for the font.
