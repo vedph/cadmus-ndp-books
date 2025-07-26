@@ -86,7 +86,7 @@ This part contains the description of the print layout.
   - `counts` (`DecoratedCount[]` 📚 `print-layout-counts`: sheets, columns, single-sheet (carte di tavola)): counts for columns, sheets, etc.
   - `formula` (`string`, a formula to be formalized, e.g. `[i–iii]8 χ6 a10 b8 c-e10 f8 g10 h-i8 l10 m-n8 o-r10 s6; 2a-2g10 2h12 2l-2m10 2o6; A8 B-H10⁰ I6 L12`, `&8 a-i8 k6 l-r8 2a-2m8 2n4 A6 B8 C-L6 (L6 bianca)`, `π10 a-z8 &8 [con]8 [rum]8 A8 B6 C-I8 K6 L8`, etc.). The basis is <https://norme.iccu.sbn.it/index.php?title=Guida_antico/Appendici/Appendice_C>.
   - `dimensions` (`PhysicalDimension[]`): dimensions either extracted from the formula or manually added.
-  - `features` (`string[]` 📚): various relevant features in layout like e.g. drop caps, framed text, etc.
+  - `features` (`string[]` 📚 `print-layout-features`): various relevant features in layout like e.g. drop caps, framed text, etc.
   - `note` (`string`)
 
 ### FigurativePlanPart

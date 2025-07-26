@@ -21,6 +21,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Cadmus.Core" Version="8.0.9" />
+		<PackageReference Include="Cadmus.Mat.Bricks" Version="6.0.1" />
 		<PackageReference Include="Cadmus.Refs.Bricks" Version="6.0.2" />
 	</ItemGroup>
 
