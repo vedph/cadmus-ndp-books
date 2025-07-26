@@ -92,25 +92,25 @@ This part contains the description of the print layout.
 
 ### FigurativePlanPart
 
-This part describes the figurative plan for the book. As a plan, it is an abstraction as well as the edition. Departures from this plan are described in the `FigurativePlanImplPart` part, which is an implementation of the plan for a specific print instance.
+This part describes the figurative plan for the book, in general terms and for each item composing the figurative plan. As a plan, it is an abstraction as well as the edition. Departures from this plan are described in the `FigurativePlanImplPart` part, which is an implementation of the plan for a specific print instance.
 
 - ⭐ `FigurativePlanPart`:
   - `artists` ([AssertedCompositeId[]](https://github.com/vedph/cadmus-bricks-shell-v3/blob/master/projects/myrmidon/cadmus-refs-asserted-ids/README.md#asserted-composite-ids)): artists identifiers, from external or internal resources, or even simple arbitrary names for unindentified artists.
   - `techniques` (`string[]` 📚 `fig-plan-techniques`: copper engraving, woodcut, lithograph, etching, other).
   - `items` (`FigPlanItem[]`): ordered list of items (illustrations, initials, etc.):
-    - `eid` (`string`): a conventional human-friendly ID.
-    - `type` (`string` 📚 `fig-plan-types`: illustration, initial, scheme, diagram, frieze): type.
+    - `eid`\* (`string`): a conventional human-friendly ID for the item.
+    - `type`\* (`string` 📚 `fig-plan-types`: illustration, initial, scheme, diagram, frieze): type.
     - `citation` (`string`): this is a cross-project citation created according to some convention to link the figurative item to a textual passage.
   - `description` (`string`): free text description of the figurative plan.
   - `features` (`string[]` 📚 `fig-plan-features`): any set of relevant features tagged for the plan.
 
 ### FigurativePlanImplPart
 
-Implementation of a figurative plan.
+Implementation of a figurative plan. This contains some general data about the implementation, and specific data for each item of the implementation which with reference to the plan was changed, removed, or added.
 
 - ⭐ `FigurativePlanImplPart`:
-  - `complete` (`boolean`): true if the implementation is complete with reference to the plan.
-  - `techniques` (`string[]`): specified only to override the corresponding techniques in the plan. If no technique is specified, all the plan's techniques are implied. If any technique is specified, this implies that these techniques fully replace the plan's techniques.
+  - `complete`\* (`boolean`): true if the implementation is complete with reference to the plan.
+  - `techniques` ⬆️ (`string[]`): specified only to override the corresponding techniques in the plan. If no technique is specified, all the plan's techniques are implied. If any technique is specified, this implies that these techniques fully replace the plan's techniques.
   - `items` (`FigPlanItemImpl[]`): ordered list of items (illustrations, initials, etc.). Only those items which override the plan's items are specified here. If an item is not specified, it is assumed that the implementation is the same as in the plan:
     - `eid`\* (`string`): the ID of the corresponding figurative plan item when overriding it, or a new one if added in this instance.
     - `location` (`string`): the page location.
@@ -126,7 +126,7 @@ Implementation of a figurative plan.
     - `labelDsc` (`string`): a free textual description of label(s).
     - `iconographyId` (`AssertedCompositeId`): link to the corresponding iconography item if any.
   - `description` (`string`): free text description of the figurative plan implementation.
-  - `features` (`string[]` 📚 `fig-plan-impl-features`: centre, frame, initial, frieze): this overrides the plan's features. If not specified, all the plan's features are implied. If any feature is specified, this implies that these features fully replace the plan's features.
+  - `features` ⬆️ (`string[]` 📚 `fig-plan-impl-features`: centre, frame, initial, frieze): this overrides the plan's features. If not specified, all the plan's features are implied. If any feature is specified, this implies that these features fully replace the plan's features.
 
 ## PrintEdition Item
 
