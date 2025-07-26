@@ -28,7 +28,6 @@ EDITION --> content
 content --> print-fonts
 content --> print-layout
 content --> cod_watermarks
-content --> epi_signs
 content --> figurative-plan
 content --> note:inc
 content --> note:col
