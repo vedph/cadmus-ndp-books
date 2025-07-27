@@ -10,9 +10,9 @@ namespace Cadmus.NdpBooks.Parts;
 
 /// <summary>
 /// Figurative plan part.
-/// <para>Tag: <c>it.vedph.ndp.figurative-plan</c>.</para>
+/// <para>Tag: <c>it.vedph.ndp.print-fig-plan</c>.</para>
 /// </summary>
-[Tag("it.vedph.ndp.figurative-plan")]
+[Tag("it.vedph.ndp.print-fig-plan")]
 public sealed class FigurativePlanPart : PartBase
 {
     /// <summary>
@@ -72,8 +72,11 @@ public sealed class FigurativePlanPart : PartBase
         if (Items?.Count > 0)
         {
             builder.AddValue("item-count", Items.Count);
-            builder.AddValues("item-type",
-                Items.Where(i => !string.IsNullOrEmpty(i.Type)).Select(i => i.Type));
+            builder.AddValues("item-eid",
+                Items.Where(i => !string.IsNullOrEmpty(i.Eid))
+                     .Select(i => i.Eid));
+            builder.AddValues("item-type", Items
+                .Where(i => !string.IsNullOrEmpty(i.Type)).Select(i => i.Type));
         }
 
         return builder.Build(this);
@@ -105,6 +108,10 @@ public sealed class FigurativePlanPart : PartBase
             new DataPinDefinition(DataPinValueType.Integer,
                 "item-count",
                 "The count of items in the figurative plan."),
+            new DataPinDefinition(DataPinValueType.String,
+                "item-eid",
+                "The EID(s) of items in the figurative plan.",
+                "M"),
             new DataPinDefinition(DataPinValueType.String,
                 "item-type",
                 "The type(s) of items in the figurative plan.",
