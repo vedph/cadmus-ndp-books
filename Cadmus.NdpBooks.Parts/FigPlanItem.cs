@@ -14,7 +14,7 @@ public class FigPlanItem
     /// The item type (e.g. illustration, initial, scheme, diagram, frieze).
     /// Usually from thesaurus <c>fig-plan-types</c>.
     /// </summary>
-    public string Type { get; set; } = "";
+    public string? Type { get; set; }
 
     /// <summary>
     /// A cross-project citation created according to some convention to
