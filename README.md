@@ -77,17 +77,21 @@ This part contains the fonts used in the printed book, each with its features an
   - `ids` ([AssertedCompositeId[]](https://github.com/vedph/cadmus-bricks-shell-v3/blob/master/projects/myrmidon/cadmus-refs-asserted-ids/README.md#asserted-composite-ids)): external identifiers for the font.
   - `note` (`string`)
 
+>[Asserted composite ID brick demo](https://cadmus-bricks-v3.fusi-soft.com/refs/asserted-composite-id) - [flags brick demo](https://cadmus-bricks-v3.fusi-soft.com/ui/flag-set).
+
 ### PrintLayoutPart
 
-This part contains the description of the print layout.
+This part contains the description of the print layout. This is similar to the [codicological layout part](https://github.com/vedph/cadmus-codicology/blob/master/docs/cod-layouts.md).
 
 - ⭐ `PrintLayoutPart`:
   - `sheetFormats` (`string[]` 📚 `print-layout-formats`: folio (2º), quarto (4º), octavo (8º), duodecimo (12º), duodecimo large (12º l), sextodecimo (16º), octodecimo (18º), vigesimo-quarto (24º), trigesimo-secundo (32º), other)
   - `counts` (`DecoratedCount[]` 📚 `print-layout-counts`: sheets, columns, single-sheet (carte di tavola)): counts for columns, sheets, etc.
-  - `formula` (`string`, a formula to be formalized, e.g. `[i–iii]8 χ6 a10 b8 c-e10 f8 g10 h-i8 l10 m-n8 o-r10 s6; 2a-2g10 2h12 2l-2m10 2o6; A8 B-H10⁰ I6 L12`, `&8 a-i8 k6 l-r8 2a-2m8 2n4 A6 B8 C-L6 (L6 bianca)`, `π10 a-z8 &8 [con]8 [rum]8 A8 B6 C-I8 K6 L8`, etc.). The basis is <https://norme.iccu.sbn.it/index.php?title=Guida_antico/Appendici/Appendice_C>.
-  - `dimensions` (`PhysicalDimension[]`): dimensions either extracted from the formula or manually added.
+  - `formula` (`string`, a [layout formula](https://github.com/vedph/cod-layout-view) to be formalized, e.g. `[i–iii]8 χ6 a10 b8 c-e10 f8 g10 h-i8 l10 m-n8 o-r10 s6; 2a-2g10 2h12 2l-2m10 2o6; A8 B-H10⁰ I6 L12`, `&8 a-i8 k6 l-r8 2a-2m8 2n4 A6 B8 C-L6 (L6 bianca)`, `π10 a-z8 &8 [con]8 [rum]8 A8 B6 C-I8 K6 L8`, etc.). The basis is <https://norme.iccu.sbn.it/index.php?title=Guida_antico/Appendici/Appendice_C>.
+  - `dimensions` (`PhysicalDimension[]`): dimensions (margins, columns, etc.), either extracted from the formula or manually added.
   - `features` (`string[]` 📚 `print-layout-features`): various relevant features in layout like e.g. drop caps, framed text, etc.
   - `note` (`string`)
+
+>[Physical dimension brick demo](https://cadmus-bricks-v3.fusi-soft.com/mat/physical-dimension).
 
 ### FigurativePlanPart
 
@@ -113,7 +117,7 @@ Implementation of a figurative plan. This contains some general data about the i
   - `items` (`FigPlanItemImpl[]`): ordered list of items (illustrations, initials, etc.). Only those items which override the plan's items are specified here. If an item is not specified, it is assumed that the implementation is the same as in the plan:
     - `eid`\* (`string`): the ID of the corresponding figurative plan item when overriding it, or a new one if added in this instance.
     - `location` (`string`): the page location.
-    - `change`\* (`string`: 📚 `fig-plan-impl-changes`: none, add, delete, replace, reuse, change, misuse): this describes the type of change made to the item in this instance with respect to the plan. If an item is deleted, it will just include `eid` and change type.
+    - `change`\* (`string`: 📚 `fig-plan-impl-changes`: none, add, delete, replace, reuse, change, misuse): this describes the type of change made to the item in this instance with respect to the plan. If an item is deleted, it will just include `eid` and change type. If it is replaced, it will have the same `eid` and different content, overriding the plan. If it is added, it will have a new `eid` and its own content, totally missing from the plan.
     - `features` (`string[]` 📚 `fig-plan-impl-item-features`: original block change, frame added, frame removed, frame changed, other): any relevant features of the implemented item, e.g. a frame.
     - `blockState` (`string` 📚 `fig-plan-impl-block-states`: fine, good, fair, damaged): the state of the woodblock (or other similar tool) used to print this item.
     - `blockStateDsc` (`string`): a free textual description of the woodblock state.
@@ -129,27 +133,29 @@ Implementation of a figurative plan. This contains some general data about the i
 
 ## PrintEdition Item
 
-The print edition is an abstraction, defined from at least 1 print instance.
+The print edition is an _abstraction_, defined from at least 1 print instance.
 
 - general:
   - 🟢 [MetadataPart](https://github.com/vedph/cadmus-general/blob/master/docs/metadata.md)
   - 🟢 [ExternalIdsPart](https://github.com/vedph/cadmus-general/blob/master/docs/external-ids.md)
   - 🟢 [ChronotopesPart:prn](https://github.com/vedph/cadmus-general/blob/master/docs/chronotopes.md): print date(s) and place(s).
   - 🟢 [ChronotopesPart:pub](https://github.com/vedph/cadmus-general/blob/master/docs/chronotopes.md): published date(s) and place(s).
-  - 🟢 [PinLinksPart](https://github.com/vedph/cadmus-general/blob/master/docs/pin-links.md)`:auth`: authors
-  - 🟢 [PinLinksPart](https://github.com/vedph/cadmus-general/blob/master/docs/pin-links.md)`:ed`: editors
+  - 🟢 [PinLinksPart](https://github.com/vedph/cadmus-general/blob/master/docs/pin-links.md)`:auth`: authors.
+  - 🟢 [PinLinksPart](https://github.com/vedph/cadmus-general/blob/master/docs/pin-links.md)`:ed`: editors.
   - 🟢 [CategoriesPart:type](https://github.com/vedph/cadmus-general/blob/master/docs/categories.md)
+
+>[Chronotopes brick demo](https://cadmus-bricks-v3.fusi-soft.com/refs/asserted-chronotope-set).
 
 - content:
   - ⭐ [PrintFontsPart](#printfontspart)
   - ⭐ [PrintLayoutPart](#printlayoutpart)
   - 📖 [COD watermarks](https://github.com/vedph/cadmus-codicology/blob/master/docs/cod-watermarks.md)
   - 🟢 [FigurativePlanPart](#figurativeplanpart)
-  - 🟢 [NotePart:inc](https://github.com/vedph/cadmus-general/blob/master/docs/note.md) for incipit
-  - 🟢 [NotePart:col](https://github.com/vedph/cadmus-general/blob/master/docs/note.md) for colophon
+  - 🟢 [NotePart:inc](https://github.com/vedph/cadmus-general/blob/master/docs/note.md) for transcribing incipit's text.
+  - 🟢 [NotePart:col](https://github.com/vedph/cadmus-general/blob/master/docs/note.md) for transcribing incipit's colophon.
 
 - editorial:
-  - 🟢 [NotePart](https://github.com/vedph/cadmus-general/blob/master/docs/note.md) for generic note
+  - 🟢 [NotePart](https://github.com/vedph/cadmus-general/blob/master/docs/note.md) for a generic note
   - 🟢 [ExtBibliographyPart](https://github.com/vedph/cadmus-general/blob/master/docs/ext-bibliography.md)
 
 ## PrintInstance Item
