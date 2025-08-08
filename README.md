@@ -52,11 +52,11 @@ INSTANCE --> content
 content --> print-fonts
 content --> print-layout
 content --> figurative-plan-impl
+content --> cod_decorations
 INSTANCE --> history
 history --> events
 history --> pin-links
 history --> cod_edits
-history --> cod_decorations
 history --> print-edits?
 INSTANCE --> editorial
 editorial --> note
@@ -168,12 +168,12 @@ The print edition is an abstraction, defined from at least 1 print instance.
   - ⭐ [PrintLayoutPart](#printlayoutpart) for overriding
   - ⭐ [FigurativePlanImplPart](#figurativeplanimplpart)
   - 🟢 [CategoriesPart:edits](https://github.com/vedph/cadmus-general/blob/master/docs/categories.md): postille
+  - 📖 [COD CodDecorationsPart](https://github.com/vedph/cadmus-codicology/blob/master/docs/cod-decorations.md)
 
 - history:
   - 🟢 [HistoricalEventsPart](https://github.com/vedph/cadmus-general/blob/master/docs/historical-events.md)
   - 🟢 [PinLinksPart](https://github.com/vedph/cadmus-general/blob/master/docs/fr.pin-links.md)
   - 📖 [COD CodEditsPart](https://github.com/vedph/cadmus-codicology/blob/master/docs/cod-edits.md)
-  - 📖 [COD CodDecorationsPart](https://github.com/vedph/cadmus-codicology/blob/master/docs/cod-decorations.md)
 
 - editorial:
   - 🟢 [NotePart](https://github.com/vedph/cadmus-general/blob/master/docs/note.md) for generic note
