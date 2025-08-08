@@ -45,6 +45,7 @@ general --> external-ids
 general --> cod_shelfmarks
 INSTANCE --> material
 material --> cod_bindings
+material --> cod_sheet-labels
 material --> measurements
 material --> states
 general --> categories:edits
@@ -170,6 +171,7 @@ The print edition is an _abstraction_, defined from at least 1 print instance.
 
 - material:
   - 📖 [COD bindings](https://github.com/vedph/cadmus-codicology/blob/master/docs/cod-bindings.md)
+  - 📖 [COD sheet labels](https://github.com/vedph/cadmus-codicology/blob/master/docs/cod-sheet-labels.md)
   - 🟢 [PhysicalMeasurementsPart](https://github.com/vedph/cadmus-general/blob/master/docs/physical-measurements.md)
   - 🟢 [PhysicalStatesPart](https://github.com/vedph/cadmus-general/blob/master/docs/physical-states.md)
 
