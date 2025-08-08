@@ -119,8 +119,8 @@ Implementation of a figurative plan. This contains some general data about the i
     - `location` (`string`): the page location.
     - `change`\* (`string`: 📚 `fig-plan-impl-changes`: none, add, delete, replace, reuse, change, misuse): this describes the type of change made to the item in this instance with respect to the plan. If an item is deleted, it will just include `eid` and change type. If it is replaced, it will have the same `eid` and different content, overriding the plan. If it is added, it will have a new `eid` and its own content, totally missing from the plan.
     - `features` (`string[]` 📚 `fig-plan-impl-item-features`: original block change, frame added, frame removed, frame changed, other): any relevant features of the implemented item, e.g. a frame.
-    - `blockState` (`string` 📚 `fig-plan-impl-block-states`: fine, good, fair, damaged): the state of the woodblock (or other similar tool) used to print this item.
-    - `blockStateDsc` (`string`): a free textual description of the woodblock state.
+    - `matrixState` (`string` 📚 `fig-plan-impl-block-states`: fine, good, fair, damaged): the state of the matrix (e.g. a woodblock) used to print this item.
+    - `matrixStateDsc` (`string`): a free textual description of the matrix state.
     - `position` (`string` 📚 `fig-plan-impl-positions`: in-text, upper margin, lower margin, full page, antiporta/frontispiece, single-sheet prints (carta di tavola)): the relative position of the item in the page.
     - `size` ([PhysicalSize](https://github.com/vedph/cadmus-bricks-shell-v3/blob/master/projects/myrmidon/cadmus-mat-physical-size/README.md))
     - `labels` (`FigPlanLabel[]`): the label types found in the item: e.g. a legend for the whole image, or a character name on a character in the image, etc.:
