@@ -116,8 +116,8 @@ Implementation of a figurative plan. This contains some general data about the i
   - `techniques` ⬆️ (`string[]`): specified only to override the corresponding techniques in the plan. If no technique is specified, all the plan's techniques are implied. If any technique is specified, this implies that these techniques fully replace the plan's techniques.
   - `items` (`FigPlanItemImpl[]`): ordered list of items (illustrations, initials, etc.). Only those items which override the plan's items are specified here. If an item is not specified, it is assumed that the implementation is the same as in the plan:
     - `eid`\* (`string`): the ID of the corresponding figurative plan item when overriding it, or a new one if added in this instance.
-    - `type`\* (`string` 📚 `fig-plan-types`: illustration, initial, scheme, diagram, frieze): type.
-    - `citation` (`string`): this is a cross-project citation created according to some convention to link the figurative item to a textual passage.
+    - `type`\* (`string` 📚 `fig-plan-types`: illustration, initial, scheme, diagram, frieze): type. This overrides the plan's type.
+    - `citation` (`string`): this is a cross-project citation created according to some convention to link the figurative item to a textual passage. This overides the plan's citation.
     - `location` (`string`): the page location.
     - `change`\* (`string`: 📚 `fig-plan-impl-changes`: none, add, delete, replace, reuse, change, misuse): this describes the type of change made to the item in this instance with respect to the plan. If an item is deleted, it will just include `eid` and change type. If it is replaced, it will have the same `eid` and different content, overriding the plan. If it is added, it will have a new `eid` and its own content, totally missing from the plan.
     - `features` (`string[]` 📚 `fig-plan-impl-item-features`: original block change, frame added, frame removed, frame changed, other): any relevant features of the implemented item, e.g. a frame.
