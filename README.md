@@ -87,7 +87,7 @@ This part contains the description of the print layout. This is similar to the [
 - ⭐ `PrintLayoutPart`:
   - `sheetFormats` (`string[]` 📚 `print-layout-formats`: folio (2º), quarto (4º), octavo (8º), duodecimo (12º), duodecimo large (12º l), sextodecimo (16º), octodecimo (18º), vigesimo-quarto (24º), trigesimo-secundo (32º), other)
   - `counts` (`DecoratedCount[]` 📚 `print-layout-counts`: sheets, columns, single-sheet (carte di tavola)): counts for columns, sheets, etc.
-  - `formula` (`string`, a [layout formula](https://github.com/vedph/cod-layout-view) to be formalized, e.g. `240 × 150 = 30 / 5 [5 / 170 / 5] 5 / 40 × 15 / 5 [5 / 50 / 5* (20) 5* / 40 / 5] 5 / 15`). The basis is <https://norme.iccu.sbn.it/index.php?title=Guida_antico/Appendici/Appendice_C>.
+  - `formula` (`string`, a [layout formula](https://github.com/vedph/cod-layout-view) to be formalized, e.g. `240 × 150 = 30 / 5 [5 / 170 / 5] 5 / 40 × 15 / 5 [5 / 50 / 5* (20) 5* / 40 / 5] 5 / 15`).
   - `dimensions` (`PhysicalDimension[]`): dimensions (margins, columns, etc.), either extracted from the formula or manually added.
   - `features` (`string[]` 📚 `print-layout-features`): various relevant features in layout like e.g. drop caps, framed text, etc.
   - `note` (`string`)
