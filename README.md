@@ -113,7 +113,7 @@ This part describes the figurative plan for the book, in general terms and for e
 Implementation of a figurative plan. This contains some general data about the implementation, and specific data for each item of the implementation which with reference to the plan was changed, removed, or added.
 
 - ⭐ `FigurativePlanImplPart`:
-  - `complete`\* (`boolean`): true if the implementation is complete with reference to the plan.
+  - `isComplete`\* (`boolean`): true if the implementation is complete with reference to the plan.
   - `techniques` ⬆️ (`string[]`): specified only to override the corresponding techniques in the plan. If no technique is specified, all the plan's techniques are implied. If any technique is specified, this implies that these techniques fully replace the plan's techniques.
   - `items` (`FigPlanItemImpl[]`): ordered list of items (illustrations, initials, etc.). Only those items which override the plan's items are specified here. If an item is not specified, it is assumed that the implementation is the same as in the plan:
     - `eid`\* (`string`): the ID of the corresponding figurative plan item when overriding it, or a new one if added in this instance.

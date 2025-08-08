@@ -1,10 +1,7 @@
 ﻿using Cadmus.Mat.Bricks;
 using Cadmus.Refs.Bricks;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Cadmus.NdpBooks.Parts;
 
@@ -73,4 +70,21 @@ public class FigPlanItemImpl : FigPlanItem
     /// The iconography of this item, if any.
     /// </summary>
     public AssertedCompositeId? IconographyId { get; set; }
+
+    /// <summary>
+    /// Converts this item to a string.
+    /// </summary>
+    /// <returns>String.</returns>
+    public override string ToString()
+    {
+        StringBuilder sb = new();
+        sb.Append('[').Append(ChangeType).Append("] ");
+        sb.Append(Type);
+        if (!string.IsNullOrEmpty(Location))
+        {
+            sb.Append(" @");
+            sb.Append(Location);
+        }
+        return sb.ToString();
+    }
 }
