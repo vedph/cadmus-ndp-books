@@ -7,7 +7,10 @@ using Fusi.Tools.Configuration;
 namespace Cadmus.NdpBooks.Parts;
 
 /// <summary>
-/// TODO: add summary
+/// Part representing the implementation of a figurative plan. This contains
+/// some general data about the implementation, and specific data for each item
+/// of the implementation which with reference to the plan was changed, removed,
+/// or added.
 /// <para>Tag: <c>it.vedph.ndp.print-fig-plan-impl</c>.</para>
 /// </summary>
 [Tag("it.vedph.ndp.print-fig-plan-impl")]
@@ -53,23 +56,14 @@ public sealed class FigurativePlanImplPart : PartBase
     /// <returns>The pins.</returns>
     public override IEnumerable<DataPin> GetDataPins(IItem? item = null)
     {
-        // TODO: build pins, eventually using DataPinBuilder like this
-        // (optionally using DataPinHelper.DefaultFilter as an argument):
-        // DataPinBuilder builder = new(new StandardDataPinTextFilter());
-        //// latitude
-        // builder.AddValue("lat", Latitude);
-        //// tot-count
-        //builder.Set("tot", Entries?.Count ?? 0, false);
-        //return builder.Build(this);
+        DataPinBuilder builder = new();
 
-        // ...or just use a simpler logic, like:
-        // sample:
-        // return Tag != null
-        //    ? new[]
-        //    {
-        //        CreateDataPin("tag", Tag)
-        //    }
-        //    : Enumerable.Empty<DataPin>();
+        builder.AddValue("complete", IsComplete);
+        builder.AddValue("item-count", Items?.Count ?? 0);
+        if (Features?.Count > 0)
+        {
+            builder.AddValues("feature", Features);
+        }
 
         throw new NotImplementedException();
     }
@@ -80,14 +74,25 @@ public sealed class FigurativePlanImplPart : PartBase
     /// <returns>Data pins definitions.</returns>
     public override IList<DataPinDefinition> GetDataPinDefinitions()
     {
-        return new List<DataPinDefinition>(
+        return
         [
-            // TODO: add pins definitions...
-            // sample:
-            // new DataPinDefinition(DataPinValueType.Integer,
-            //    "tot-count",
-            //    "The total count of entries.")
-        ]);
+            new DataPinDefinition(
+                DataPinValueType.Boolean,
+                "complete",
+                "True if the implementation is complete with reference to the plan."
+            ),
+            new DataPinDefinition(
+                DataPinValueType.Integer,
+                "item-count",
+                "The count of items in the figurative plan implementation."
+            ),
+            new DataPinDefinition(
+                DataPinValueType.String,
+                "feature",
+                "Feature(s) about the implementation, e.g. frame, frieze, etc.",
+                "M"
+            )
+        ];
     }
 
     /// <summary>
@@ -100,9 +105,10 @@ public sealed class FigurativePlanImplPart : PartBase
     {
         StringBuilder sb = new();
 
-        sb.Append("[__NAME__]");
+        sb.Append("[FigurativePlanImpl]");
 
-        // TODO: append summary data...
+        if (!IsComplete) sb.Append('*');
+        sb.Append(": ").Append(Items?.Count ?? 0);
 
         return sb.ToString();
     }
