@@ -34,7 +34,7 @@ public sealed class FigurativePlanImplPart : PartBase
     /// <summary>
     /// The items in the figurative plan implementation.
     /// </summary>
-    public List<FigPlanItemImpl>? Items { get; set; }
+    public List<FigPlanImplItem>? Items { get; set; }
 
     /// <summary>
     /// Free text description of the figurative plan implementation.

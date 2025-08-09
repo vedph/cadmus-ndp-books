@@ -8,7 +8,7 @@ namespace Cadmus.NdpBooks.Parts;
 /// <summary>
 /// Implementation of a figurative plan item.
 /// </summary>
-public class FigPlanItemImpl : FigPlanItem
+public class FigPlanImplItem : FigPlanItem
 {
     /// <summary>
     /// The page location (e.g. <c>1r</c>).
