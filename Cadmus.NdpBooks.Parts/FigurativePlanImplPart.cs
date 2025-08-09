@@ -65,7 +65,7 @@ public sealed class FigurativePlanImplPart : PartBase
             builder.AddValues("feature", Features);
         }
 
-        throw new NotImplementedException();
+        return builder.Build(this);
     }
 
     /// <summary>
