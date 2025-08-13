@@ -20,6 +20,15 @@
     "partSeeders": [
       {
         "id": "seed.it.vedph.ndp.print-fonts"
+      },
+      {
+        "id": "seed.it.vedph.ndp.print-fig-plan-impl"
+      },
+      {
+        "id": "seed.it.vedph.ndp.print-fig-plan"
+      },
+      {
+        "id": "seed.it.vedph.ndp.print-layout"
       }
     ],
     "fragmentSeeders": []
