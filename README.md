@@ -70,13 +70,14 @@ editorial --> ext-bibliography
 
 This part contains the fonts used in the printed book, each with its features and distribution across the book sections.
 
-- ⭐ `fonts` (`PrintFont[]`):
-  - `eid` (`string`)
-  - `family`\* (`string` 📚 `print-font-families`): a descriptive ID like "R5" for the font family.
-  - `sections` (`string[]` 📚 `print-layout-sections`, fieldset: title, body, comment, proem, other): the section(s) where the font is used.
-  - `features` (`string[]` 📚 `print-font-features` flags, features of the font, especially useful when the family can't be specified: uppercase, lowercase, Roman, Gothic, Italic, Hebrew, Greek, Glagolitic, etc.)
-  - `ids` ([AssertedCompositeId[]](https://github.com/vedph/cadmus-bricks-shell-v3/blob/master/projects/myrmidon/cadmus-refs-asserted-ids/README.md#asserted-composite-ids)): external identifiers for the font.
-  - `note` (`string`)
+- ⭐ `PrintFontsPart` (`it.vedph.ndp.print-fonts`):
+  - `fonts` (`PrintFont[]`):
+    - `eid` (`string`)
+    - `family`\* (`string` 📚 `print-font-families`): a descriptive ID like "R5" for the font family.
+    - `sections` (`string[]` 📚 `print-layout-sections`, fieldset: title, body, comment, proem, other): the section(s) where the font is used.
+    - `features` (`string[]` 📚 `print-font-features` flags, features of the font, especially useful when the family can't be specified: uppercase, lowercase, Roman, Gothic, Italic, Hebrew, Greek, Glagolitic, etc.)
+    - `ids` ([AssertedCompositeId[]](https://github.com/vedph/cadmus-bricks-shell-v3/blob/master/projects/myrmidon/cadmus-refs-asserted-ids/README.md#asserted-composite-ids)): external identifiers for the font.
+    - `note` (`string`)
 
 >[Asserted composite ID brick demo](https://cadmus-bricks-v3.fusi-soft.com/refs/asserted-composite-id) - [flags brick demo](https://cadmus-bricks-v3.fusi-soft.com/ui/flag-set).
 
@@ -84,7 +85,7 @@ This part contains the fonts used in the printed book, each with its features an
 
 This part contains the description of the print layout. This is similar to the [codicological layout part](https://github.com/vedph/cadmus-codicology/blob/master/docs/cod-layouts.md).
 
-- ⭐ `PrintLayoutPart`:
+- ⭐ `PrintLayoutPart` (`it.vedph.ndp.print-layout`):
   - `sheetFormats` (`string[]` 📚 `print-layout-formats`: folio (2º), quarto (4º), octavo (8º), duodecimo (12º), duodecimo large (12º l), sextodecimo (16º), octodecimo (18º), vigesimo-quarto (24º), trigesimo-secundo (32º), other)
   - `counts` (`DecoratedCount[]` 📚 `print-layout-counts`: sheets, columns, single-sheet (carte di tavola)): counts for columns, sheets, etc.
   - `formula` (`string`, a [layout formula](https://github.com/vedph/cod-layout-view) to be formalized, e.g. `240 × 150 = 30 / 5 [5 / 170 / 5] 5 / 40 × 15 / 5 [5 / 50 / 5* (20) 5* / 40 / 5] 5 / 15`).
@@ -98,7 +99,7 @@ This part contains the description of the print layout. This is similar to the [
 
 This part describes the figurative plan for the book, in general terms and for each item composing the figurative plan. As a plan, it is an _abstraction_ as well as the edition. Departures from this plan are described in the `FigurativePlanImplPart` part, which is an implementation of the plan for a specific print instance.
 
-- ⭐ `FigurativePlanPart`:
+- ⭐ `FigurativePlanPart` (`it.vedph.ndp.print-fig-plan`):
   - `artistIds` ([AssertedCompositeId[]](https://github.com/vedph/cadmus-bricks-shell-v3/blob/master/projects/myrmidon/cadmus-refs-asserted-ids/README.md#asserted-composite-ids)): artists identifiers, from external or internal resources, or even simple arbitrary names for unindentified artists.
   - `techniques`\* (`string[]` 📚 `fig-plan-techniques`: copper engraving, woodcut, lithograph, etching, other).
   - `items` (`FigPlanItem[]`): ordered list of items (illustrations, initials, etc.):
@@ -112,7 +113,7 @@ This part describes the figurative plan for the book, in general terms and for e
 
 Implementation of a figurative plan. This contains some general data about the implementation, and specific data for each item of the implementation which with reference to the plan was changed, removed, or added.
 
-- ⭐ `FigurativePlanImplPart`:
+- ⭐ `FigurativePlanImplPart` (`it.vedph.ndp.print-fig-plan-impl`):
   - `isComplete`\* (`boolean`): true if the implementation is complete with reference to the plan.
   - `techniques` ⬆️ (`string[]` 📚 `fig-plan-techniques`): specified only to override the corresponding techniques in the plan. If no technique is specified, all the plan's techniques are implied. If any technique is specified, this implies that these techniques fully replace the plan's techniques.
   - `items` (`FigPlanImplItem[]`): ordered list of items (illustrations, initials, etc.). Only those items which override the plan's items are specified here. If an item is not specified, it is assumed that the implementation is the same as in the plan:
