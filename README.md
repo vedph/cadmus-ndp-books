@@ -26,7 +26,7 @@ general --> pin-links:ed
 general --> categories:types
 EDITION --> content
 content --> print-fonts
-content --> print-layout
+content --> cod-fr-layout
 content --> cod_watermarks
 content --> figurative-plan
 content --> note:inc
@@ -51,7 +51,7 @@ material --> states
 general --> categories:edits
 INSTANCE --> content
 content --> print-fonts
-content --> print-layout
+content --> cod-fr-layout
 content --> figurative-plan-impl
 content --> cod_decorations
 INSTANCE --> history
@@ -65,6 +65,11 @@ editorial --> ext-bibliography
 ```
 
 ## New Parts
+
+Note: as for layout, its model is equal to that of the [FRAC codicological fragment layout part](https://github.com/vedph/cadmus-ndp-frac?tab=readme-ov-file#codfrlayoutpart). The only relevant differences in their usage are:
+
+- pricking is not applicable to printed books, but its thesaurus has a n/a entry for this.
+- sheet formats (one or more can be selected) for printed books are defined in features using a corresponding thesaurus (`cod-fr-layout-features`), which is role-dependent. This allows to define features only for print (for sheet formats at least), if fragments do not require them.
 
 ### PrintFontsPart
 
@@ -80,20 +85,6 @@ This part contains the fonts used in the printed book, each with its features an
     - `note` (`string`)
 
 >[Asserted composite ID brick demo](https://cadmus-bricks-v3.fusi-soft.com/refs/asserted-composite-id) - [flags brick demo](https://cadmus-bricks-v3.fusi-soft.com/ui/flag-set).
-
-### PrintLayoutPart
-
-This part contains the description of the print layout. This is similar to the [codicological layout part](https://github.com/vedph/cadmus-codicology/blob/master/docs/cod-layouts.md).
-
-- ⭐ `PrintLayoutPart` (`it.vedph.ndp.print-layout`):
-  - `sheetFormats` (`string[]` 📚 `print-layout-formats`: folio (2º), quarto (4º), octavo (8º), duodecimo (12º), duodecimo large (12º l), sextodecimo (16º), octodecimo (18º), vigesimo-quarto (24º), trigesimo-secundo (32º), other)
-  - `counts` (`DecoratedCount[]` 📚 `print-layout-counts`: sheets, columns, single-sheet (carte di tavola)): counts for columns, sheets, etc.
-  - `formula` (`string`, a [layout formula](https://github.com/vedph/cod-layout-view) to be formalized, e.g. `240 × 150 = 30 / 5 [5 / 170 / 5] 5 / 40 × 15 / 5 [5 / 50 / 5* (20) 5* / 40 / 5] 5 / 15`).
-  - `dimensions` (`PhysicalDimension[]`): dimensions (margins, columns, etc.), either extracted from the formula or manually added.
-  - `features` (`string[]` 📚 `print-layout-features`): various relevant features in layout like e.g. drop caps, framed text, etc.
-  - `note` (`string`)
-
->[Physical dimension brick demo](https://cadmus-bricks-v3.fusi-soft.com/mat/physical-dimension).
 
 ### FigurativePlanPart
 
@@ -193,3 +184,13 @@ The print edition is an _abstraction_, defined from at least 1 print instance.
 - editorial:
   - 🟢 [NotePart](https://github.com/vedph/cadmus-general/blob/master/docs/note.md) for generic note
   - 🟢 [ExtBibliographyPart](https://github.com/vedph/cadmus-general/blob/master/docs/ext-bibliography.md)
+
+## History
+
+### 1.0.0
+
+- removed print part layout part as [FRAC layout part](https://github.com/vedph/cadmus-ndp-frac?tab=readme-ov-file#codfrlayoutpart) is now used for both printed books and manuscript fragments.
+
+### 0.0.1
+
+- inital release.
