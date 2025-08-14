@@ -76,7 +76,7 @@ public sealed class FigurativePlanPart : PartBase
                 Items.Where(i => !string.IsNullOrEmpty(i.Eid))
                      .Select(i => i.Eid));
             builder.AddValues("item-type", Items
-                .Where(i => !string.IsNullOrEmpty(i.Type)).Select(i => i.Type));
+                .Where(i => !string.IsNullOrEmpty(i.Type)).Select(i => i.Type!));
         }
 
         return builder.Build(this);
