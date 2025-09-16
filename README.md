@@ -187,6 +187,10 @@ The print edition is an _abstraction_, defined from at least 1 print instance.
 
 ## History
 
+### 1.0.1
+
+- 2025-09-16: updated packages.
+
 ### 1.0.0
 
 - removed print part layout part as [FRAC layout part](https://github.com/vedph/cadmus-ndp-frac?tab=readme-ov-file#codfrlayoutpart) is now used for both printed books and manuscript fragments.
