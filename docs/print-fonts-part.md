@@ -13,7 +13,5 @@ This part contains the fonts used in the printed book, each with its features an
 
 >[Asserted composite ID brick demo](https://cadmus-bricks-v3.fusi-soft.com/refs/asserted-composite-id) - [flags brick demo](https://cadmus-bricks-v3.fusi-soft.com/ui/flag-set).
 
-Note: as for layout, its model is equal to that of the [FRAC codicological fragment layout part](https://github.com/vedph/cadmus-ndp-frac?tab=readme-ov-file#codfrlayoutpart). The only relevant differences in their usage are:
-
 - pricking is not applicable to printed books, but its thesaurus has a n/a entry for this.
 - sheet formats (one or more can be selected) for printed books are defined in features using a corresponding thesaurus (`cod-fr-layout-features`), which is role-dependent. This allows to define features only for print (for sheet formats at least), if fragments do not require them.
