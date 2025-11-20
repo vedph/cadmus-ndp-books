@@ -16,7 +16,7 @@ Implementation of a figurative plan. This contains some general data about the i
     - `matrixState` (`string` 📚 `fig-plan-impl-matrix-states`: fine, good, fair, damaged): the state of the matrix (e.g. a woodblock) used to print this item.
     - `matrixStateDsc` (`string`): a free textual description of the matrix state.
     - `position` (`string` 📚 `fig-plan-impl-positions`: in-text, upper margin, lower margin, full page, antiporta/frontispiece, single-sheet prints (carta di tavola)): the relative position of the item in the page.
-    - `size` ([PhysicalSize](https://github.com/vedph/cadmus-bricks-shell-v3/blob/master/projects/myrmidon/cadmus-mat-physical-size/README.md))
+    - `size` ([PhysicalSize](https://github.com/vedph/cadmus-bricks/blob/master/docs/physical-size.md))
     - `labels` (`FigPlanItemLabel[]`): the label types found in the item: e.g. a legend for the whole image, or a character name on a character in the image, etc.:
       - `type`\* (`string` 📚 `fig-plan-item-label-types`: legend, topographic indication, character name, inscription): the label type.
       - `languages` (`string[]` 📚 `fig-plan-item-label-languages`): the language(s) used in the label.
