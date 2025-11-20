@@ -3,7 +3,7 @@
 This part describes the figurative plan for the book, in general terms and for each item composing the figurative plan. As a plan, it is an _abstraction_ as well as the edition. Departures from this plan are described in the `FigurativePlanImplPart` part, which is an implementation of the plan for a specific print instance.
 
 - `FigurativePlanPart` (`it.vedph.ndp.print-fig-plan`):
-  - `artistIds` ([AssertedCompositeId[]](https://github.com/vedph/cadmus-bricks-shell-v3/blob/master/projects/myrmidon/cadmus-refs-asserted-ids/README.md#asserted-composite-ids)): artists identifiers, from external or internal resources, or even simple arbitrary names for unindentified artists.
+  - `artistIds` ([AssertedCompositeId[]](https://github.com/vedph/cadmus-bricks/blob/master/docs/asserted-composite-id.md)): artists identifiers, from external or internal resources, or even simple arbitrary names for unindentified artists.
   - `techniques`\* (`string[]` 📚 `fig-plan-techniques`: copper engraving, woodcut, lithograph, etching, other).
   - `items` (`FigPlanItem[]`): ordered list of items (illustrations, initials, etc.):
     - `eid`\* (`string`): a conventional human-friendly ID for the item.
