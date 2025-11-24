@@ -125,6 +125,10 @@ The print edition is an _abstraction_, defined from at least 1 print instance.
 
 ## History
 
+### 2.0.0
+
+- 2025-11-24: ⚠️ upgraded to NET 10.
+
 ### 1.0.2
 
 - 2025-10-08: updated packages.
