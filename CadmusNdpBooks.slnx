@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="Pack.bat" />
+    <File Path="Push.bat" />
+    <File Path="PushLocal.bat" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="Cadmus.NdpBooks.Parts.Test/Cadmus.NdpBooks.Parts.Test.csproj" />
+  <Project Path="Cadmus.NdpBooks.Parts/Cadmus.NdpBooks.Parts.csproj" />
+  <Project Path="Cadmus.NdpBooks.Services/Cadmus.NdpBooks.Services.csproj" />
+  <Project Path="Cadmus.Seed.NdpBooks.Parts.Test/Cadmus.Seed.NdpBooks.Parts.Test.csproj" />
+  <Project Path="Cadmus.Seed.NdpBooks.Parts/Cadmus.Seed.NdpBooks.Parts.csproj" />
+</Solution>
