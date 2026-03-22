@@ -125,6 +125,10 @@ The print edition is an _abstraction_, defined from at least 1 print instance.
 
 ## History
 
+### 2.0.4
+
+- 2026-03-22: updated packages.
+
 ### 2.0.3
 
 - 2026-03-19: updated packages.
